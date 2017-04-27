@@ -1,6 +1,6 @@
 ## The Slap Object Game - Part 2
 
-### Step 1 - The Target Object
+### Step 1 - The Target Object (2pts)
 So at this point you have a mostly functional slap game, however its time to refactor and clean up a few problems that could exist. First of all you have a global variable called `health` which is currently being used to control the state of the application. 
 
 To illustrate the problem with a global variable imagine for a moment you are playing an old arcade fighting game. Chances are you have at least two players. Now with just two players it might be easy enough to create two global variable and functions for `player1` and `player2` but what if we are actually playing a game like 
@@ -12,7 +12,7 @@ To illustrate the problem with a global variable imagine for a moment you are pl
 
 Look at all those characters on the screen. Imagine how many global variables you would need to keep track of. There has to be a better way to organize these characters especially when you think about the complexity of each character having their own special moves with unique damage modifiers. 
 
-#### Enter Objects
+#### Enter Objects 
 The real challenge of the `SlapGame` is to start thinking about how your data is structured. Going back to a simpler example think about Ken and Ryu from the street fighter game.
 
 ![ken-and-ryu](http://k30.kn3.net/taringa/C/3/6/F/5/0/omarlopezsandova/FE4.gif.cover?)
@@ -55,7 +55,7 @@ You could of course create targets using an object literal `{}` but it might mak
 
 Now work on converting your global variables to properties that can be used through a `Target constructor`. This will make it so you have to update your code in your `update` function to something like `target.health`
 
-### Step 2 - Items
+### Step 2 - Items (2pts)
 - It's now time to add items to our game. Items are objects that will be created using a constructor.
   the items are responsible for reducing or increasing the damage done to the target on hit.
 1. Create an Item constructor that takes in the following "options": (name, modifier, description).
@@ -70,7 +70,7 @@ var Obj = function(option1, option2, option3){
 }
 ```
  
-### Step 3 - Create the items
+### Step 3 - Create the items (2pt)
 - Since our game will have multiple items, we need to find an easy way to access them. 
  We can use an array to store a collection of objects. However, arrays are not always the easiest to use, because they require us
  to loop over the entire collection when we are looking for a specific item. What if we instead, create an object that uses the name of the item as a property (for more on this topic, review the dictionaries cheetsheet)?
@@ -87,7 +87,7 @@ var items = {
  - We can now easily reference the shield item by calling items.shield.
  - What would items.shield.name return?
  
-### Step 4 - Give some items to our target
+### Step 4 - Give some items to our target (1pt)
 - We are using an object to store the master list of items in our game. However, we need to be able to give our 
   target items. In this case, we need to use an array, because it may be possible for the user to have multiples of the same item.
 1. Create an array property named items on the target object.
@@ -99,7 +99,7 @@ var items = {
 
 3. Keep in mind that the \[items] object that is global, is completly different than the \[items] array on the target.
  
-### Step 5 - REDUCE THE DAMAGE!... almost
+### Step 5 - REDUCE THE DAMAGE!... almost (1pt)
 - How are you at math?
 1. Create a function on the target object called, addMods().
 2. Using a "for loop", calculate the combined value of modifiers in the player.items array.
@@ -112,7 +112,7 @@ var items = {
 	
 3. Have the function return the total.
 
-### Step 6 - REDUCE THE DAMAGE!... for real this time.
+### Step 6 - REDUCE THE DAMAGE!... for real this time. (2pts)
 - Before you begin this step, remember math in javascript
   is the same as on paper. Order of operations matters: **5 * .3 =  1.5**
 - Stuck?
@@ -124,7 +124,7 @@ this.health -= damage * this.addMods();
 ```
 - If there are no mods the total should be 1
 
-### Step 7 - Let the user select the Items.
+### Step 7 - Let the user select the Items. (1pt)
 - Add a div in the body with an id="items" and put a button for each item
 - Write a function that will allow the user to click each button and giveItem("item") to the player
 - This shouldn't move the items from the items object but make a copy of them in the target.items array.
