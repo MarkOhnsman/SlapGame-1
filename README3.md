@@ -6,7 +6,7 @@ We now have a fully functioning slap game! Yay! However we know there are vulner
 
 In order to protect our data we need to separate it out using encapsulation, and only allow the user to access it through methods we provide.
 
-#### Step 1 - Service
+#### Step 1 - Service (2.5pts)
 
 Lets Encapsulate our data and methods into a constructor function called a Service. Services are where we manage the data for  our application by utilizing both private and public functions and variables that can be called by our Controller, but more on controllers in a minute.
 
@@ -41,7 +41,7 @@ function Item(name, modifier, description) {
     };
 ```
 
-#### Step 2 - Getters and Setters
+#### Step 2 - Getters and Setters (2.5pts)
 
 Now that we have our data wrapped up in a service the functions we have added are private, meaning they can only be changed from within this service. We need to add the functions that will serve as bridges allowing the user (through the controller) the ability to manipulate the information in a way we control. 
 
@@ -60,7 +60,7 @@ dataStore.attack = function(type) {
 2. Do this with your giveItems() as well
 3. In addition, write a function so when updating the DOM view with our target we can use the Object.assign() method  that returns the current copy of that player. (something like getTarget)
 
-#### Step 3 - Controller
+#### Step 3 - Controller (5pts)
 
 The next step is to put together our controller. The controller acts as the middleman between our service and the DOM. We will instantiate our service within the controller constructor to allow access to all of the services public properties and methods.
 
